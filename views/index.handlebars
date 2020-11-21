@@ -1,0 +1,53 @@
+{{!-- Setup the index.handlebars to have the template that Handlebars can render onto.
+Create a button in index.handlebars that will submit the user input into the database. --}}
+
+<br>
+<div class="container">
+    <div class="text-center">
+        <h1 class="logo text-danger">Eat-Da-Burger!</h1>
+        <br>
+        <img src="/assets/images/burger_img.png" class="mx-auto d-block" style="background-color:#ffe875;" width="120"
+            height="120" alt="Burger Image">
+        
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col ">
+            <h3 class="text-secondary">Burgers To be Eaten</h3>
+            <br>
+            {{!-- Loop through burger data obtained from db which are not devoured i.e whose value is false --}}
+             {{#each burgers}}
+                {{#unless devoured}}
+                        <p>
+                            {{this.id}}. {{this.burger_name}}
+                            <button class="devour btn btn-primary btn-sm" data-id="{{this.id}}">Devour!</button>
+                        </p>
+                {{/unless}}
+            {{/each}}
+
+        </div>
+        <div class="col">
+            <h3 class="text-secondary text-center">Enter burger you want to eat!</h3>
+            <br>
+            <form class="add-burger text-center">
+                <div class="col-sm-12">
+                    <textarea type="text" name="burger" id="burgerName" rows="3" cols="50%"></textarea>
+                    <button type="submit" class="btn btn-primary">Add Burger!</button>
+                </div>
+            </form>
+        </div>
+        <div class="col ">
+            <h3 class="text-secondary">Burgers Devoured</h3>
+            <br>
+                {{!-- Loop through burger data obtained from db which are devoured i.e whose value is true --}}
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <p>
+                            {{this.id}}. {{this.burger_name}}
+                        </p>
+                    {{/if}}
+                {{/each}}
+            
+        </div>
+    </div>
+</div>
