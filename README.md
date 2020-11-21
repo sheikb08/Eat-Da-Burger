@@ -53,7 +53,7 @@ This is a fun App that allows its users to keep track of the types of burges tha
 ![Note-taker](images/demo.gif) 
 
 ## Screenshot  
-|![HTML Screenshot](images/screen.jpg)
+|![HTML Screenshot](images/screen.JPG)
 
 ## Contributor
 * Brandon Johnson
